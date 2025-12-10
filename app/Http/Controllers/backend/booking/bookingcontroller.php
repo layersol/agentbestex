@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\backend\booking;
+namespace App\Http\Controllers\Backend\Booking;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
