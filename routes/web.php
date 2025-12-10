@@ -46,18 +46,6 @@ Route::post('/admin/booking/cancel', [BookingManageController::class, 'cancelTic
 
 
 
-
-
-
-
-
-
-
-//   Route::get('/admin/airline/list', [AirlineController::class, 'index'])
-//     ->name('admin.airline.list')
-//     ->middleware('auth');
-
-
 Route::get('/admin/airline/list', [AirlineController::class, 'index'])
     ->name('admin.airline.list')
     ->middleware('auth');
@@ -118,7 +106,7 @@ Route::get('/admin/profile/view', [ProfileController::class, 'index'])
     ->name('admin.profile.view')
     ->middleware('auth');
 
-   
+
 Route::get('/admin/users/{id}/edit', [ProfileController::class, 'edit'])->name('admin.users.edit');
 Route::put('/admin/users/{id}', [ProfileController::class, 'update'])->name('admin.users.update');
 Route::delete('/admin/users/{id}', [ProfileController::class, 'destroy'])->name('admin.users.destroy');
@@ -151,4 +139,3 @@ Route::post('/booking/confirmed', [FlightBookingController::class, 'store'])->na
 Route::get('/flights/tickets/{id}', [FlightBookingController::class, 'tickets'])
     ->name('flights.tickets');
 
-    
