@@ -211,11 +211,11 @@
           </div>
           <div class="biglogo">
             <!-- small round logo -->
-            <img src="{{asset('assets/img/login.png')}}" alt="logo" style="width:64px;height:64px;object-fit:contain;">
+            <img src="<?php echo e(asset('assets/img/login.png')); ?>" alt="logo" style="width:64px;height:64px;object-fit:contain;">
           </div>
         </div>
 
-       <img src="{{asset('assets/img/img-login.jpg')}}" />
+       <img src="<?php echo e(asset('assets/img/img-login.jpg')); ?>" />
         <div style="margin-top:auto;color:var(--muted);font-size:13px;">
           Secure login • Fast bookings • 24/7 support
         </div>
@@ -224,11 +224,11 @@
       <!-- RIGHT: Form -->
       <div class="right">
         <div class="brand">
-          <img src="{{asset('assets/img/logo.webp')}}" alt="bestex logo">
+          <img src="<?php echo e(asset('assets/img/logo.webp')); ?>" alt="bestex logo">
         </div>
 
-                    <form method="POST" action="{{ route('login.post') }}">
-                        @csrf
+                    <form method="POST" action="<?php echo e(route('login.post')); ?>">
+                        <?php echo csrf_field(); ?>
         <div>
           <label for="user" style="font-size:13px;color:var(--muted)">Enter Mobile Number/ Email ID</label>
           <div class="field form-row">
@@ -284,3 +284,4 @@
 </body>
 </html>
 
+<?php /**PATH C:\wamp64\www\BestexTravel\agentbestex\resources\views/auth/login.blade.php ENDPATH**/ ?>

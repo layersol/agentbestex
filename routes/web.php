@@ -136,7 +136,7 @@ Route::fallback(function () {
 // ---------------------------------Ticket Management-------------------------
 
 // Cancel ticket
-Route::post('/admin/bookings/{booking}/cancel', [BookingManageController::class, 'cancelTicket'])->name('admin.booking.cancel');
+// Route::post('/admin/bookings/{booking}/cancel', [BookingManageController::class, 'cancelTicket'])->name('admin.booking.cancel');
 
 // Refund ticket
 Route::get('/admin/bookings/refund/{id}', [BookingManageController::class, 'refundTicket'])->name('admin.booking.refund');
