@@ -1,0 +1,1 @@
+<h1>Dashboard create</h1><?php /**PATH C:\xampp\htdocs\agentbestex\resources\views/backend/dashboard/create.blade.php ENDPATH**/ ?>

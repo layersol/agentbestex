@@ -1,0 +1,1 @@
+<a href="{{ route('payments.edit', 2) }}">Edit</a>

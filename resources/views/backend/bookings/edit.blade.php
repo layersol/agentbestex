@@ -1,0 +1,1 @@
+<a href="{{ route('booking.edit', 2) }}">Edit</a>

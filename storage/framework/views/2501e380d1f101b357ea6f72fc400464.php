@@ -211,3 +211,4 @@ body {
 
 </body>
 </html>
+<?php /**PATH C:\xampp\htdocs\agentbestex\resources\views/backend/settings/create.blade.php ENDPATH**/ ?>

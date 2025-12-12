@@ -86,7 +86,7 @@
       gap:12px;
       margin-bottom:6px;
     }
-    .brand img { height:36px; display:block; }
+    .brand img { height:100px; display:block; }
     .input {
       border:0;
       border-bottom:1px solid #e6e7eb;
@@ -211,11 +211,11 @@
           </div>
           <div class="biglogo">
             <!-- small round logo -->
-            <img src="logo.png" alt="logo" style="width:64px;height:64px;object-fit:contain;">
+            <img src="<?php echo e(asset('assets/img/login.png')); ?>" alt="logo" style="width:64px;height:64px;object-fit:contain;">
           </div>
         </div>
 
-        <!-- small decorative text -->
+       <img src="<?php echo e(asset('assets/img/img-login.jpg')); ?>" />
         <div style="margin-top:auto;color:var(--muted);font-size:13px;">
           Secure login • Fast bookings • 24/7 support
         </div>
@@ -224,7 +224,7 @@
       <!-- RIGHT: Form -->
       <div class="right">
         <div class="brand">
-          <img src="logo.png" alt="bestex logo">
+          <img src="<?php echo e(asset('assets/img/logo.webp')); ?>" alt="bestex logo">
         </div>
 
                     <form method="POST" action="<?php echo e(route('login.post')); ?>">

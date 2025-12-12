@@ -1,0 +1,1 @@
+<a href="{{ route('dashboard.edit', 2) }}">Edit</a>

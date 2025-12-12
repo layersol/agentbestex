@@ -20,8 +20,9 @@ class BookingController extends Controller
      */
     public function create()
     {
-        //
+       return view('backend.booking.create');
     }
+    
 
     /**
      * Store a newly created resource in storage.
@@ -44,7 +45,8 @@ class BookingController extends Controller
      */
     public function edit(string $id)
     {
-        //
+   
+    return view('booking.edit');    
     }
 
     /**

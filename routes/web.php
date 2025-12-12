@@ -5,14 +5,33 @@ use App\Http\Controllers\GroupFareController;
 use App\Http\Controllers\RouteController;
 use App\Http\Controllers\FlightBookingController;
 use App\Http\Controllers\AuthController;
-use App\Http\Controllers\admin\DashboardController;
+// use App\Http\Controllers\admin\DashboardController;
 use App\Http\Controllers\admin\BookingManageController;
 use App\Http\Controllers\admin\AirlineController;
 use App\Http\Controllers\admin\RoutesController;
 use App\Http\Controllers\admin\PaymentTransactionsController;
 use App\Http\Controllers\admin\ProfileController;
 
+// Backend Controllers
+use App\Http\Controllers\backend\apimodule\ApiModuleController;
+use App\Http\Controllers\backend\fronted\frontendController;
+use App\Http\Controllers\backend\booking\bookingcontroller;
+use App\Http\Controllers\backend\dashboard\DashboardController;
+use App\Http\Controllers\backend\general\generalcontroller;
+use App\Http\Controllers\backend\packages\PackagesController;
+use App\Http\Controllers\backend\payments\PaymentsController;
+use App\Http\Controllers\backend\roles_permissions\RolesPermissionsController;
+use App\Http\Controllers\backend\settings\SettingsController;
+use App\Http\Controllers\backend\support\SupportController;
+use App\Http\Controllers\backend\users\UsersController;
 
+// Frontend Controllers
+
+use App\Http\Controllers\frontend\Home\HomeController;
+use App\Http\Controllers\frontend\Payments\PaymentsController as FrontendPaymentsController;
+use App\Http\Controllers\frontend\Search\SearchController;
+use App\Http\Controllers\frontend\searchcopy\SearchCopyController;
+use App\Http\Controllers\frontend\Toures\TouresController;
 
 
 
@@ -138,4 +157,160 @@ Route::post('/book-flight', [FlightBookingController::class, 'booking'])->name('
 Route::post('/booking/confirmed', [FlightBookingController::class, 'store'])->name('booking.confirmed');
 Route::get('/flights/tickets/{id}', [FlightBookingController::class, 'tickets'])
     ->name('flights.tickets');
+
+
+
+
+
+Route::middleware(['auth'])->group(function () {
+
+    // Dashboard
+     Route::prefix('backend')
+    ->middleware(['auth'])
+    ->group(function () {
+
+        Route::get('dashboard/create', [DashboardController::class, 'create'])
+            ->name('dashboard.create');
+
+             Route::get('dashboard/edit', [DashboardController::class, 'edit'])
+            ->name('dashboard.edit');
+            Route::get('dashboard/list', [DashboardController::class, 'list'])
+            ->name('dashboard.list');
+
+});
+
+    // APIModule CRUD
+    Route::prefix('backend')
+    ->middleware(['auth'])
+    ->group(function () {
+
+        Route::get('apiModules/create', [ApiModuleController::class, 'create'])
+            ->name('apiModules.create');
+
+             Route::get('apiModules/edit', [ApiModuleController::class, 'edit'])
+            ->name('apiModules.edit');
+            Route::get('apiModules/list', [ApiModuleController::class, 'list'])
+            ->name('apiModules.list');
+
+        // Route::get('/account', [AccountController::class, 'show'])
+        //     ->name('backend.account.show');
+
+        // // ⭐ Correct API Module routes
+        // Route::prefix('api-module')->name('backend.api-module.')->group(function () {
+        //     Route::resource('/', ApiModuleController::class)->parameters([
+        //         '' => 'apiModule'
+        //     ]);
+        // });
+
+});
+
+    // Auth module CRUD
+    Route::prefix('auth')->group(function () {
+        Route::resource('/', AuthController::class);
+    });
+
+    // Booking module CRUD
+     Route::prefix('backend')
+    ->middleware(['auth'])
+    ->group(function () {
+
+        Route::get('booking/create', [ApiModuleController::class, 'create'])
+            ->name('booking.create');
+
+             Route::get('booking/edit', [ApiModuleController::class, 'edit'])
+            ->name('booking.edit');
+            Route::get('booking/list', [ApiModuleController::class, 'list'])
+            ->name('booking.list');
+
+    
+
+});
+
+// frontend module CRUD
+    //  Route::prefix('backend')
+    // ->middleware(['auth'])
+    // ->group(function () {
+
+    //     Route::get('/frontend/create', [FrontendController::class, 'create'])
+    //         ->name('frontend.create');
+
+    //          Route::get('/frontend/edit', [FrontendController::class, 'edit'])
+    //         ->name('frontend.edit');
+
+    //         Route::get('/frontend/list', [frontendController::class, 'list'])
+    //         ->name('frontend.list');
+
+// });
+
+    // General module CRUD
+     
+
+    // Packages module CRUD
+    Route::prefix('backend')
+    ->middleware(['auth'])
+    ->group(function () {
+
+        Route::get('packages/create', [PackagesController::class, 'create'])
+            ->name('packages.create');
+
+             Route::get('packages/edit', [PackagesController::class, 'edit'])
+            ->name('packages.edit');
+            Route::get('packages/list', [PackagesController::class, 'list'])
+            ->name('packages.list');
+    });
+    });
+
+    // Payments module CRUD (backend)
+    Route::prefix('backend')
+    ->middleware(['auth'])
+    ->group(function () {
+
+        Route::get('payments/create', [PaymentsController::class, 'create'])
+            ->name('payments.create');
+
+             Route::get('payments/edit', [PaymentsController::class, 'edit'])
+            ->name('payments.edit');
+            Route::get('payments/list', [PaymentsController::class, 'list'])
+            ->name('payments.list');
+    });
+    
+
+    // Roles & Permissions module CRUD
+    Route::prefix('roles_permissions')->group(function () {
+        Route::resource('/', RolesPermissionsController::class);
+    });
+
+    // Settings module CRUD
+     Route::prefix('backend')
+    ->middleware(['auth'])
+    ->group(function () {
+
+        Route::get('settings/create', [SettingsController::class, 'create'])
+            ->name('settings.create');
+
+             Route::get('settings/edit', [SettingsController::class, 'edit'])
+            ->name('settings.edit');
+            Route::get('settings/list', [SettingsController::class, 'list'])
+            ->name('settings.list');
+    });
+
+    // Support module CRUD
+    Route::prefix('support')->group(function () {
+        Route::resource('/', SupportController::class);
+    });
+
+    // Users module CRUD
+    Route::prefix('users')->group(function () {
+        Route::resource('/', UsersController::class);
+    });
+
+      // Frontend modules
+     Route::prefix('frontend')->group(function () {
+        Route::resource('flight-booking', FlightBookingController::class);
+        Route::resource('home', HomeController::class);
+        Route::resource('payments', FrontendPaymentsController::class);
+        Route::resource('search', SearchController::class);
+        Route::resource('search-copy', SearchCopyController::class);
+        Route::resource('toures', TouresController::class);
+    });
 

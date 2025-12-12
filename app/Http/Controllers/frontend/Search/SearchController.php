@@ -1,23 +1,18 @@
 <?php
 
-namespace App\Http\Controllers\backend\ApiModule;
+namespace App\Http\Controllers\frontend\Search;
 
-use App\Models\ApiModule; 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class ApiModuleController extends Controller
+class SearchController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-     public function index()
+    public function index()
     {
-
-
-
-        $modules = ApiModule::latest()->get();
-        return view('backend.apiModule.index', compact('modules'));
+        //
     }
 
     /**
@@ -25,14 +20,9 @@ class ApiModuleController extends Controller
      */
     public function create()
     {
-        
-        return view('backend.apiModules.create');
+        //
     }
-public function list()
-    {
-        
-        return view('backend.apiModules.list');
-    }
+
     /**
      * Store a newly created resource in storage.
      */
@@ -54,7 +44,7 @@ public function list()
      */
     public function edit(string $id)
     {
-        echo("id");
+        //
     }
 
     /**

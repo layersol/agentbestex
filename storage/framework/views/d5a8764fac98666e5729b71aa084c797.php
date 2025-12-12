@@ -1,0 +1,1 @@
+<h1>payments list</h1><?php /**PATH C:\xampp\htdocs\agentbestex\resources\views/backend/payments/list.blade.php ENDPATH**/ ?>

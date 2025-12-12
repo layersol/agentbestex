@@ -1,23 +1,18 @@
 <?php
 
-namespace App\Http\Controllers\backend\ApiModule;
+namespace App\Http\Controllers\backend\payments;
 
-use App\Models\ApiModule; 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class ApiModuleController extends Controller
+class PaymentsController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-     public function index()
+    public function index()
     {
-
-
-
-        $modules = ApiModule::latest()->get();
-        return view('backend.apiModule.index', compact('modules'));
+        //
     }
 
     /**
@@ -25,14 +20,16 @@ class ApiModuleController extends Controller
      */
     public function create()
     {
-        
-        return view('backend.apiModules.create');
+        return view('backend.payments.create');
     }
-public function list()
+ /**
+     * Show the form for list a new resource.
+     */
+    public function list()
     {
-        
-        return view('backend.apiModules.list');
+        return view('backend.payments.list');
     }
+
     /**
      * Store a newly created resource in storage.
      */
@@ -54,7 +51,7 @@ public function list()
      */
     public function edit(string $id)
     {
-        echo("id");
+        return view("$id");
     }
 
     /**

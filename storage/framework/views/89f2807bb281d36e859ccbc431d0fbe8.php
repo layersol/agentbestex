@@ -1,0 +1,1 @@
+<h1>packages list</h1><?php /**PATH C:\xampp\htdocs\agentbestex\resources\views/backend/packages/list.blade.php ENDPATH**/ ?>
